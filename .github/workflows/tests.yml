@@ -1,0 +1,23 @@
+name: Tester
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git clone my repository
+        uses: actions/checkout@v1
+
+      - name: make install
+        run: make install
+
+      - name: make test
+        run: make test
+
+      - name: Print message
+        run: echo "tests finished"
